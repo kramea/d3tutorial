@@ -14,6 +14,19 @@ layout: true
 class: left
 background-image: url(../css/logos.png)
 ---
+## Before we start
+
+Go to your document folder, open a terminal, and 
+
+## git clone https://github.com/berkeley-gif/d3tutorial.git
+
+## cd d3tutorial
+
+## python -m SimpleHTTPServer
+
+Open browser at localhost:8000
+---
+
 ##[__d3js.org__](http://d3js.org) __Data-Driven Documents__
 
     
@@ -267,11 +280,14 @@ d3.select('#canvas')
 // !!! Pseudo code - will not run
 // create selection, bind data
 selection = d3.select('#canvas').append('svg:svg').data(data).selectAll('circle')
+
 // create svg elements for new data points
 selection.enter().append('circle')
+
 // update existing svg elements here (including the ones just created)
 // d is the data point, i the index
 selection.attr('color', function(d, i) {return d.color})
+
 // deal with elements no longer covered by data (removal)
 selection.exit().remove()
 ```
@@ -336,7 +352,7 @@ https://ecoengine.berkeley.edu/api/search/
 
 [working example](examples/scales.html)
 
-* Remember the earlier [mapping slide](#8)? Provide domain and range to create a scale.
+* Remember the earlier [mapping slide](#9)? Provide domain and range to create a scale.
 
 ```js
 temperature_scale = d3.scale.linear()
@@ -356,7 +372,17 @@ categorial_scale = d3.scale.ordinal()
 console.log(categorial_scale('oranges'))
 ```
 
+---
 
+## Adding transitions
+
+[working example](example_3) / [online](http://bl.ocks.org/postfalk/bcf01af7bd0381c5b0ca)
+
+* transitions are animations between two states
+* they are relatively easy to use
+* different functions are available
+* transition functions can be custom-functions
+* transition time can be set
 
 <!-- NEXT SLIDE -->
     </textarea>
