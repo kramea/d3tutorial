@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
+    <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
+    <title>Remark</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  </head>
+  <body>
+    <textarea id="source">
+name: agenda
+layout: true
+class: left
+background-image: url(../css/logos.png)
+---
+##[__d3js.org__](http://d3js.org) __Data-Driven Documents__
+
+    
+![](img/d3.png)
+
+
+---
+## __The world of d3.js__ 
+## _and some conclusions for the bootcamp_
+<br>
+
+#### 1. revisiting mapping (generalized approach)
+#### 2. revisiting geospatial data (APIs, TopoJSON)
+#### 3. revisiting geographic story-telling (data journalism)
+
+---
+## The New York Times as pioneer in data visualization
+
+Let's look at a recent example
+
+http://www.nytimes.com/interactive/2015/04/01/us/water-use-in-california.html?ref=us
+---
+## The New York Times as pioneer in data visualization
+
+Let's look at a recent example
+
+http://www.nytimes.com/interactive/2015/04/01/us/water-use-in-california.html?ref=us
+
+* map frame is gone, map appears in-line in the article
+* map data is reduced to the essentials (not relying on generalized tilesets)
+* Web Mercator projection left behind
+* not a mapping web application but rather a news article/post blog (very little code necessary)
+
+---
+## An example geospatial professionals always wished for
+
+https://www.jasondavies.com/maps/transition/
+
+---
+## An example geospatial professionals always wished for
+
+https://www.jasondavies.com/maps/transition/
+
+* dynamic transitions by changing mapping functions
+* this example relays on only 200 lines of JS code!
+* uses functionality of d3.geo (part of the standard d3.js library)
+---
+
+## What is d3?
+
+* A JavaScript graphing and visualization library build on HTML5 scalable vector graphic (svg).
+* Successor of Protovis.js developed by the Stanford Data Visualization group.
+* Mike Bostock has been the main developer. He works now for the New York Times.
+* D3 has become the work horse of a new age of data journalism and visualization.
+* For geospatial professionals it provides new ways to think about map making, communication, or even projects.
+
+---
+## Revisiting mapping
+
+Mapping: An operation that associates each element of a given set (the domain) 
+with one or more elements of a second set (the range).
+
+![](img/mapping.svg)
+
+Any (computer) visualization problem can be described as a mapping problem. 
+Geospatial mapping is just a subset.
+---
+
+## Again, what is d3?
+
+* d3.js has everything you need for visualizing complex data BUT you will not find commands like 
+barchart, scatterplot, or piechart. 
+* d3.js builds vizualizations from its basic HTML5 (svg) elements (e.g. `<g>`, `<circle>`, `<rect>`, `<path>`).
+* d3.js is most and foremost a DOM manipulation library (in this regard similar to jquery).
+* d3.js comes with a lot of functions and methods to create _mapping functions_ that will map your data directly to properties on html elements.
+
+
+---
+
+## Getting started: svg 
+
+[working example](examples/getting_started.html)
+
+```html
+<!-- svg canvas starts here-->
+<svg>
+    <circle cx="40" cy="20" r="10" fill="red"></circle>
+    <circle cx="100" cy="50" r="40" fill="green"></circle>
+</svg>
+
+```
+<svg>
+    <circle cx="40" cy="20" r="10" fill="red"></circle>
+    <circle cx="100" cy="50" r="40" fill="green"></circle>
+</svg>
+---
+## Relating data
+
+[working example](examples/getting_started.html)
+
+```html
+<!-- svg canvas starts here-->
+<svg>
+    <circle cx="40" cy="20" r="10" fill="red"></circle>
+    <circle cx="100" cy="50" r="40" fill="green"></circle>
+</svg>
+
+```
+<svg height="100">
+    <circle cx="40" cy="20" r="10" fill="red"></circle>
+    <circle cx="100" cy="50" r="40" fill="green"></circle>
+</svg>
+
+<p>Data:</p>
+
+|   |x-coord   |y-coord  |radius  |
+|---|----|---|---|
+|red| 40 | 20 | 10 |
+|green| 100 |50 | 40 |
+
+---
+## Changing scale
+
+[working example](examples/changing_scale.html)
+
+```html
+<svg width="200" height="200" 
+    transform="translate(180 90) scale(.556 -1.111)">
+    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+    <circle cx="0" cy="89.92" r="40" fill="green"></circle>
+</svg>
+```
+
+<svg width="200" height="100" 
+    transform="translate(100 100) scale(.556 -1.111)">
+    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+    <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+</svg>
+
+Geographic Data:
+
+|   |longitude   |latitude  |radius  |
+|---|----|---|---|
+|red|-107.91|71.94|10|
+|green|0|55.55|40|
+
+---
+
+## Conclusion
+
+[working example](examples/changing_scale.html)
+
+```html
+<svg width="200" height="200" 
+    transform="translate(180 90) scale(.556 -1.111)">
+    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+    <circle cx="0" cy="89.92" r="40" fill="green"></circle>
+</svg>
+```
+
+<svg width="200" height="100" 
+    transform="translate(100 100) scale(.556 -1.111)">
+    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+    <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+</svg>
+
+* well this is not a proper projection (will get back to this)
+* the third dimension (circle size cannot be presented in this coordinate system)
+
+---
+
+## Circles with d3.js: empty container
+
+[working example](examples/empty_container.html)
+
+```
+<body>
+  <div id="canvas"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js">
+  </script>
+  <script></script>
+</body>
+```
+
+* html `<body>` is currently mostly empty
+* it contains a `<div>`-container where we will attach new elements using d3.js
+* it loads d3.js from a Content Delivery Network (CDN), minimized
+* it has a script-tag for our code
+
+---
+
+## Circles with d3.js: selectors
+
+[working example](examples/selectors.html)
+
+```html
+<body>
+  <div id="canvas"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js">
+  </script>
+  <script>
+    d3.select('#canvas')
+        .append('svg:svg')
+        .attr('height', 200)
+        .attr('width', 200)
+  </script>
+</body>
+```
+
+will render something like this
+
+```html
+    <div id="canvas">
+        <svg height="200" width="200">
+    <div>
+```
+
+---
+
+## Circles with d3.js: complete example
+
+[working example](examples/complete_example.html)
+
+```js
+data = [
+    ['red', '40', '20', '10'],
+    ['green', '100', '50', '40']
+]
+
+d3.select('#canvas')
+    .append('svg:svg')
+    .data(data)
+    .selectAll('circle')
+.enter()
+    .append('circle')
+    .attr('cx', function(d) {return d[1]})
+    .attr('cy', function(d) {return d[2]})
+    .attr('r', function(d) {return d[3]})
+    .attr('fill', function(d) {return d[0]});
+```
+
+* data binding
+
+---
+
+## Enter, update, exit: The general update pattern
+
+[working example](example_1) / [online](http://bl.ocks.org/postfalk/f0d3ceddd49f0c6fa029)
+
+```js
+// !!! Pseudo code - will not run
+// create selection, bind data
+selection = d3.select('#canvas').append('svg:svg').data(data).selectAll('circle')
+// create svg elements for new data points
+selection.enter().append('circle')
+// update existing svg elements here (including the ones just created)
+// d is the data point, i the index
+selection.attr('color', function(d, i) {return d.color})
+// deal with elements no longer covered by data (removal)
+selection.exit().remove()
+```
+
+---
+
+## Making it interactive
+
+[working example](example_1) / [online](http://bl.ocks.org/postfalk/f0d3ceddd49f0c6fa029)
+
+* using events, e.g. mouse click
+* wrapping the update pattern into a function so that it can be called whenever event is triggered
+* event &rarr;  change data &rarr; update visualization
+
+---
+
+## A complete visualization example using API data
+
+
+<!-- NEXT SLIDE -->
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+   <!-- <script src="js/remark.language.js" type="text/javascript"></script>-->
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'monokai',
+          highlightLanguage: 'remark',
+          ratio: "4:3"
+        }) ;
+    </script>
+  </body>
+</html>
