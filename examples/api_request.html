@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>api request</title>
+  </head>
+
+  <body>
+    <p>Yes, it is working. Please open the console of the developer tools to see the results.</p>
+    <div id="canvas"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script>
+        url = "https://ecoengine.berkeley.edu/api/search/?q=puma"
+        d3.json(url, function(error, data) {
+            if (error) alert('Something went wrong!')
+            else {
+                console.log(data);
+            }
+        })
+    </script>
+  </body>
+
+</html>

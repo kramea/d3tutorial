@@ -292,6 +292,71 @@ selection.exit().remove()
 
 [working example](example_2) / [online](http://bl.ocks.org/postfalk/3d9a789ebfa4bf9b8c7d)
 
+---
+
+## What is a RESTful API?
+
+* look it up at [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer)!
+* for our practical concerns: it is a machine-readable, and query-able presentation of data on the internet
+* directly accessible through applications and coding languages
+
+---
+## APIs: The Berkeley Ecoinformatics Engine as an example
+
+* it currently serves Natural History Data from UC Berkeley
+* https://ecoengine.berkeley.edu
+* We will use the search endpoint for a quick visualization
+https://ecoengine.berkeley.edu/api/search/
+* We can easily query for a genus https://ecoengine.berkeley.edu/api/search/?q=puma
+* Query language specific to API's - read documentation https://ecoengine.berkeley.edu/docs/
+* Many APIs require authorization or limit use
+* Let's visualize the count over states and provinces
+
+---
+## Sending an API request using d3.js
+
+[working example](examples/api_request.html)
+
+```js
+    url = "https://ecoengine.berkeley.edu/api/search/?q=puma"
+    d3.json(url, function(error, data) {
+        if (error) alert('Something went wrong!')
+        else {
+            console.log(data);
+        }
+    })
+```
+
+* you should see your data in the console
+* let's go back to the [example](http://bl.ocks.org/postfalk/3d9a789ebfa4bf9b8c7d)
+
+---
+
+## Scales
+
+[working example](examples/scales.html)
+
+* Remember the earlier [mapping slide](#8)? Provide domain and range to create a scale.
+
+```js
+temperature_scale = d3.scale.linear()
+    .domain([-273, 1000])
+    .range([0, 400])
+// will return the pixel value for 0 and 100 Celsius
+console.log(temperature_scale(0), temperature_scale(100))
+color_scale = d3.scale.linear()
+    .domain([-273, 1000])
+    .range(['darkblue', 'darkred'])
+// will return the color code on the color gradient
+console.log(color_scale(800))
+categorial_scale = d3.scale.ordinal()
+    .domain(['apples', 'oranges', 'bananas', 'plumes'])
+    .rangePoints([0, 400])
+// will return the point where oranges should go
+console.log(categorial_scale('oranges'))
+```
+
+
 
 <!-- NEXT SLIDE -->
     </textarea>

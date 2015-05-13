@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>scales</title>
+  </head>
+
+  <body>
+    <p>Yes, it is working. Please open the console of the developer tools to see the results.</p>
+    <div id="canvas"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script>
+        temperature_scale = d3.scale.linear()
+            .domain([-273, 1000])
+            .range([0, 400])
+        // will return the pixel value for 0 and 100 Celsius
+        console.log(temperature_scale(0), temperature_scale(100))
+        color_scale = d3.scale.linear()
+            .domain([-273, 1000])
+            .range(['darkblue', 'darkred'])
+        // will return the color code on the color gradient
+        console.log(color_scale(800))
+        categorial_scale = d3.scale.ordinal()
+            .domain(['apples', 'oranges', 'bananas', 'plumes'])
+            .rangePoints([0, 400])
+        // will return the point where oranges should go
+        console.log(categorial_scale('oranges'))
+    </script>
+  </body>
+
+</html>
