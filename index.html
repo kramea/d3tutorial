@@ -228,10 +228,10 @@ Geographic Data:
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js">
   </script>
   <script>
-    d3.select('#canvas')
+    var svg = d3.select('#canvas')
         .append('svg:svg')
         .attr('height', 200)
-        .attr('width', 200)
+        .attr('width', 200);
   </script>
 </body>
 ```
@@ -251,15 +251,16 @@ will render something like this
 [working example](examples/complete_example.html)
 
 ```js
-data = [
+var data = [
     ['red', '40', '20', '10'],
     ['green', '100', '50', '40']
-]
+];
 
-d3.select('#canvas')
-    .append('svg:svg')
+var svg = d3.select('#canvas')
+    .append('svg:svg');
+
+svg.selectAll('circle')
     .data(data)
-    .selectAll('circle')
 .enter()
     .append('circle')
     .attr('cx', function(d) {return d[1]})
@@ -298,7 +299,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
     <rect x="60" y="70" width="20" height="20" fill="red"></rect>
@@ -311,11 +312,11 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
     <rect x="60" y="70" width="20" height="20" fill="red"></rect>
-    <text x="0" y="130">d3.selectAll('rect')
+    <text x="0" y="130">svg.selectAll('rect')</text>
 </svg>
 
 ---
@@ -324,14 +325,16 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
     <rect x="60" y="70" width="20" height="20" fill="red"></rect>
     <rect x="250" y="70" width="20" height="20" stroke="black" fill="white"></rect>
     <rect x="280" y="70" width="20" height="20" stroke="black" fill="white"></rect>
     <rect x="310" y="70" width="20" height="20" stroke="black"fill="white"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data).enter()
+    <text x="0" y="130">svg.selectAll('rect').data(data).enter()</text>
+    <rect x="0" y="270" width="20" height="20" stroke="black" fill="white"></rect>
+    <text x="30" y="290">object holding data but no DOM element</text>
 </svg>
 
 ---
@@ -341,7 +344,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
     <rect x="60" y="70" width="20" height="20" fill="red"></rect>
@@ -351,7 +354,7 @@ selection.exit().remove()
     <rect x="500" y="70" width="20" height="20" fill="red"></rect>
     <rect x="530" y="70" width="20" height="20" fill="red"></rect>
     <rect x="560" y="70" width="20" height="20" fill="red"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data).enter().append('rect').attr('fill', d)
+    <text x="0" y="130">svg.selectAll('rect').data(data).enter().append('rect').attr('fill', d)</text>
 </svg>
 
 ---
@@ -361,7 +364,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="green"></rect>
     <rect x="30" y="70" width="20" height="20" fill="green"></rect>
     <rect x="60" y="70" width="20" height="20" fill="green"></rect>
@@ -377,7 +380,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="green"></rect>
     <rect x="30" y="70" width="20" height="20" fill="green"></rect>
     <rect x="60" y="70" width="20" height="20" fill="green"></rect>
@@ -387,7 +390,7 @@ selection.exit().remove()
     <rect x="500" y="70" width="20" height="20" fill="red"></rect>
     <rect x="530" y="70" width="20" height="20" fill="red"></rect>
     <rect x="560" y="70" width="20" height="20" fill="red"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data)</text>
+    <text x="0" y="130">svg.selectAll('rect').data(data)</text>
 </svg>
 
 ---
@@ -397,7 +400,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="green"></rect>
     <rect x="30" y="70" width="20" height="20" fill="green"></rect>
     <rect x="60" y="70" width="20" height="20" fill="green"></rect>
@@ -407,7 +410,7 @@ selection.exit().remove()
     <rect x="500" y="70" width="20" height="20" fill="green"></rect>
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data).attr('fill', d)</text>
+    <text x="0" y="130">svg.selectAll('rect').data(data).attr('fill', d)</text>
 </svg>
 
 ---
@@ -416,7 +419,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
@@ -433,7 +436,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
@@ -444,7 +447,7 @@ selection.exit().remove()
     <rect x="500" y="70" width="20" height="20" fill="green"></rect>
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
-    <text x="0" y="130">d3.selectAll('rect')</text>
+    <text x="0" y="130">svg.selectAll('rect')</text>
 </svg>
 
 ---
@@ -454,16 +457,40 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="130">svg.selectAll('rect').data(data)</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="grey"></rect>
     <rect x="340" y="70" width="20" height="20" stroke="black" fill="white"></rect>
     <rect x="500" y="70" width="20" height="20" fill="green"></rect>
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data).enter()</text>
+    <text x="0" y="130">svg.selectAll('rect').data(data).enter()</text>
 </svg>
 
 ---
@@ -473,14 +500,14 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
     <text x="250" y="90">?</text>
     <text x="500" y="90">?</text>
-    <text x="0" y="130">d3.selectAll('rect').data(data).enter().append('rect').attr('fill', d)</text>
+    <text x="0" y="130">svg.selectAll('rect').data(data).enter().append('rect').attr('fill', d)</text>
 </svg>
 
 ---
@@ -490,17 +517,20 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="grey"></rect>
     <rect x="340" y="70" width="20" height="20" fill="blue" ></rect>
     <rect x="500" y="70" width="20" height="20" fill="green"></rect>
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
     <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
-   <text x="0" y="130">d3.selectAll('rect').data(data).enter()</text>
+   <text x="0" y="130">svg.selectAll('rect').data(data).enter()</text>
 </svg>
 
 ---
@@ -510,7 +540,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
@@ -523,7 +553,7 @@ selection.exit().remove()
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
     <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
-   <text x="0" y="130">d3.selectAll('rect').data(data)</text>
+   <text x="0" y="130">svg.selectAll('rect')</text>
 </svg>
 
 ---
@@ -533,7 +563,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
@@ -546,7 +576,7 @@ selection.exit().remove()
     <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
-   <text x="0" y="130">d3.selectAll('rect').data(data).attr("fill", d)</text>
+   <text x="0" y="130">svg.selectAll('rect').data(data).attr("fill", d)</text>
 </svg>
 
 ---
@@ -555,7 +585,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
@@ -571,7 +601,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
@@ -583,7 +613,7 @@ selection.exit().remove()
     <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
-    <text x="0" y="130">d3.selectAll('rect')</text>
+    <text x="0" y="130">svg.selectAll('rect')</text>
 </svg>
 
 ---
@@ -593,42 +623,7 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
-    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
-    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
-    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data).exit()</text>
-</svg>
-
----
-## Visualizing what's going on
-
-<svg class="my-selection-example" height="300" width="700">
-    <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
-    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
-    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
-    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data).exit().remove()</text>
-</svg>
-
----
-## Visualizing what's going on
-
-<svg class="my-selection-example" height="300" width="700">
-    <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
@@ -638,7 +633,29 @@ selection.exit().remove()
     <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data)</text>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">svg.selectAll('rect').data(data)</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">svg.selectAll('rect').data(data).exit()</text>
 </svg>
 
 ---
@@ -647,7 +664,46 @@ selection.exit().remove()
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
     <text x="250" y="50">selection</text>
-    <text x="500" y="50">markup</text>
+    <text x="500" y="50">DOM</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">svg.selectAll('rect').data(data).exit().remove()</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">svg.selectAll('rect').data(data)</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
     <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
@@ -657,7 +713,7 @@ selection.exit().remove()
     <rect x="500" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="530" y="70" width="20" height="20" fill="orange"></rect>
     <rect x="560" y="70" width="20" height="20" fill="orange"></rect>
-    <text x="0" y="130">d3.selectAll('rect').data(data).attr('fill', d)</text>
+    <text x="0" y="130">svg.selectAll('rect').data(data).attr('fill', d)</text>
 </svg>
 
 ---

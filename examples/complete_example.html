@@ -10,13 +10,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js">
   </script>
   <script>
-    data = [
+    var data = [
         ['red', '40', '20', '10'],
         ['green', '100', '50', '40']
-    ]
-    d3.select('#canvas')
-        .append('svg:svg')
-        .selectAll('circle')
+    ];
+
+    var svg = d3.select('#canvas')
+        .append('svg:svg');
+
+    svg.selectAll('circle')
         .data(data)
     .enter()
         .append('circle')
