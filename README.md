@@ -7,7 +7,7 @@ git clone https://github.com/berkeley-gif/d3tutorial.git
 
 cd d3tutorial
 
-python -m SimpleHTTP
+python -m SimpleHTTPServer
 ```
 
 Request 
