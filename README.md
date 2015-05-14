@@ -12,6 +12,6 @@ python -m SimpleHTTPServer
 
 Request 
 
-localhost:8000
+http://localhost:8000
 
 in a browser of your choice.
