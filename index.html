@@ -268,7 +268,7 @@ d3.select('#canvas')
     .attr('fill', function(d) {return d[0]});
 ```
 
-* data binding
+* data binding is at the core of d3.js
 
 ---
 
@@ -293,6 +293,376 @@ selection.exit().remove()
 ```
 
 ---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="130">d3.selectAll('rect')
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="250" y="70" width="20" height="20" stroke="black" fill="white"></rect>
+    <rect x="280" y="70" width="20" height="20" stroke="black" fill="white"></rect>
+    <rect x="310" y="70" width="20" height="20" stroke="black"fill="white"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data).enter()
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data).enter().append('rect').attr('fill', d)
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="red"></rect>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data)</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data).attr('fill', d)</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="130">d3.selectAll('rect')</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="340" y="70" width="20" height="20" stroke="black" fill="white"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data).enter()</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="250" y="90">?</text>
+    <text x="500" y="90">?</text>
+    <text x="0" y="130">d3.selectAll('rect').data(data).enter().append('rect').attr('fill', d)</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue" ></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+   <text x="0" y="130">d3.selectAll('rect').data(data).enter()</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+     <rect x="250" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+   <text x="0" y="130">d3.selectAll('rect').data(data)</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+   <text x="0" y="130">d3.selectAll('rect').data(data).attr("fill", d)</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">d3.selectAll('rect')</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data).exit()</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="340" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data).exit().remove()</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data)</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="250" y="50">selection</text>
+    <text x="500" y="50">markup</text>
+    <rect x="0" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="250" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="280" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="310" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="orange"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="orange"></rect>
+    <text x="0" y="130">d3.selectAll('rect').data(data).attr('fill', d)</text>
+</svg>
+
+---
+
+
 
 ## Making it interactive
 
@@ -378,11 +748,69 @@ console.log(categorial_scale('oranges'))
 
 [working example](example_3) / [online](http://bl.ocks.org/postfalk/bcf01af7bd0381c5b0ca)
 
+[simple example](examples/transition.html)
+
 * transitions are animations between two states
 * they are relatively easy to use
 * different functions are available
 * transition functions can be custom-functions
 * transition time can be set
+
+---
+
+## d3.geo: Revisiting geographic data
+
+[working example](example_4) / [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+
+* internet bandwidth is still the biggest hurdle in client side map rendering
+* web mapping relies on smart technologies to minimize the data transferred, such as
+    * new data formats (e.g. TopoJSON)
+    * API's that allow for data querying, subsetting by viewport, adjusting resolution depending on demand, reprojecting on the fly, etc.
+    * Many cloud services provide this functionality out of the box once you upload your data (e.g. CartoDB, MapSense)
+
+---
+## Example relies on TopoJSON
+
+[working example](example_4) / [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+
+* TopoJSON created within the d3 ecosystem
+* compare:
+
+|                                |              |
+| ------------------------------ | ------------ |
+| CA_Counties.shp                | 5.7  Mbyte   |
+| GeoJSON (simplified to 100m)   | 1.1  Mbyte   |
+| TopoJSON                       | 0.14 Mbyte   |
+
+* conversion tools see http://bost.ocks.org/mike/map/
+
+---
+## What about precision?
+
+* Yes, there is a fair amount of data reduction (but you still have the original Shapefile)
+* Create a pipeline from your archival files to formats that suits your presentation (ideally in code)
+* Unfortunately typical in GIS: coordinates like -123.32332441448, well those are nanometers! Almost half of your GIS data are useless digits that are created by conversions
+* Your data will end up on a screen with 1200 x 1200 pixels at best
+---
+
+## What does TopoJSON do
+
+* Reducing duplicate arcs on boundaries of neighboring features (here goes another half of your data), store edges seperately,
+reference them by identifiers 
+* Subtract the common offset of all coordinates and store them as transitions, e.g. for CA you can 
+add 122
+* Snap vertices to a grid of reasonable precision, store the distance between grid cells as zoom factor and refer to coordinates by integer numbers
+
+[Example](example_4/ca_counties.json)
+
+Why didn't we do this early? Computing power to reverse all the transitions on the fly
+
+---
+## Building up the mapping function
+
+[working example](example_4) / [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+
+
 
 <!-- NEXT SLIDE -->
     </textarea>

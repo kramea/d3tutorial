@@ -149,3 +149,11 @@ code {
 img {
   width: 95%;
 }
+
+.my-selection-example text {
+    font-family: sans-serif;
+}
+
+li li {
+    font-size: 0.6em;
+}
