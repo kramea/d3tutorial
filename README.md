@@ -1,12 +1,14 @@
 ## d3.js introduction by Falk Schuetzenmeister ##
 
-Getting started:
+Getting started (in your working directory):
 
+```
 git clone https://github.com/berkeley-gif/d3tutorial.git
 
 cd d3tutorial
 
-python -m SimpleHHTP
+python -m SimpleHTTP
+```
 
 Request 
 
