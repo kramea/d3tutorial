@@ -1,1 +1,15 @@
-d3.js introduction by Falk Schuetzenmeister
+## d3.js introduction by Falk Schuetzenmeister ##
+
+Getting started:
+
+git clone https://github.com/berkeley-gif/d3tutorial.git
+
+cd d3tutorial
+
+python -m SimpleHHTP
+
+Request 
+
+localhost:8000
+
+in a browser of your choice.
