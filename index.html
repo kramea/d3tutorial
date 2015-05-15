@@ -77,8 +77,8 @@ https://www.jasondavies.com/maps/transition/
 
 ## What is d3?
 
-* A JavaScript graphing and visualization library build on HTML5 scalable vector graphic (svg).
-* Successor of Protovis.js developed by the Stanford Data Visualization group.
+* A JavaScript graphing and visualization library build on scalable vector graphic (SVG).
+* Successor of Protovis.js developed by the Stanford Data Visualization group (2009).
 * Mike Bostock has been the main developer. He works now for the New York Times.
 * D3 has become the work horse of a new age of data journalism and visualization.
 * For geospatial professionals it provides new ways to think about map making, communication, or even projects.
@@ -98,8 +98,8 @@ Geospatial mapping is just a subset.
 ## Again, what is d3?
 
 * d3.js has everything you need for visualizing complex data BUT you will not find commands like 
-barchart, scatterplot, or piechart. 
-* d3.js builds vizualizations from its basic HTML5 (svg) elements (e.g. `<g>`, `<circle>`, `<rect>`, `<path>`).
+barchart, scatterplot, or piechart, or even map
+* d3.js builds vizualizations (and other content) from its basic HTML5 or SVG elements (e.g. `<g>`, `<circle>`, `<rect>`, `<path>`).
 * d3.js is most and foremost a DOM manipulation library (in this regard similar to jquery).
 * d3.js comes with a lot of functions and methods to create _mapping functions_ that will map your data directly to properties on html elements.
 
@@ -108,8 +108,7 @@ barchart, scatterplot, or piechart.
 
 ## Getting started: svg 
 
-[working example](examples/getting_started.html)
-
+[working example](examples/getting_started.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/1/)
 ```html
 <!-- svg canvas starts here-->
 <svg>
@@ -125,7 +124,7 @@ barchart, scatterplot, or piechart.
 ---
 ## Relating data
 
-[working example](examples/getting_started.html)
+[working example](examples/getting_started.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/1/)
 
 ```html
 <!-- svg canvas starts here-->
@@ -150,13 +149,13 @@ barchart, scatterplot, or piechart.
 ---
 ## Changing scale
 
-[working example](examples/changing_scale.html)
+[working example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/3/)
 
 ```html
-<svg width="200" height="200" 
-    transform="translate(180 90) scale(.556 -1.111)">
+<svg width="200" height="100" 
+    transform="translate(100 100) scale(.556 -1.111)">
     <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
-    <circle cx="0" cy="89.92" r="40" fill="green"></circle>
+    <circle cx="0" cy="55.55" r="40" fill="green"></circle>
 </svg>
 ```
 
@@ -177,7 +176,7 @@ Geographic Data:
 
 ## Conclusion
 
-[working example](examples/changing_scale.html)
+[working example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/3/)
 
 ```html
 <svg width="200" height="200" 
@@ -200,7 +199,7 @@ Geographic Data:
 
 ## Circles with d3.js: empty container
 
-[working example](examples/empty_container.html)
+[working example](examples/empty_container.html) | [on jsfiddle](http://jsfiddle.net/postfalk/1nydhomv/5/)
 
 ```
 <body>
@@ -220,7 +219,7 @@ Geographic Data:
 
 ## Circles with d3.js: selectors
 
-[working example](examples/selectors.html)
+[working example](examples/selectors.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/7/)
 
 ```html
 <body>
@@ -248,17 +247,15 @@ will render something like this
 
 ## Circles with d3.js: complete example
 
-[working example](examples/complete_example.html)
+[working example](examples/complete_example.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/8/)
 
 ```js
 var data = [
     ['red', '40', '20', '10'],
     ['green', '100', '50', '40']
 ];
-
 var svg = d3.select('#canvas')
     .append('svg:svg');
-
 svg.selectAll('circle')
     .data(data)
 .enter()
@@ -275,7 +272,7 @@ svg.selectAll('circle')
 
 ## Enter, update, exit: The general update pattern
 
-[working example](example_1) / [online](http://bl.ocks.org/postfalk/f0d3ceddd49f0c6fa029)
+[working example](example_1) | [online](http://bl.ocks.org/postfalk/f0d3ceddd49f0c6fa029) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/9/)
 
 ```js
 // !!! Pseudo code - will not run
