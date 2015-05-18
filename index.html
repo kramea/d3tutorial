@@ -29,6 +29,14 @@ Open a terminal, and
 ### Open browser at localhost:8000
 ---
 
+# Data Visualization and Mapping with d3.js
+<br>
+#### Falk Schuetzenmeister
+#### Spatial Data Science Bootcamp
+<br>
+#### May 22, 2015
+---
+
 ##[__d3js.org__](http://d3js.org) __Data-Driven Documents__
 
     
@@ -36,7 +44,7 @@ Open a terminal, and
 
 
 ---
-## __The world of d3.js__ 
+## The world of d3.js 
 ## _and some conclusions for the bootcamp_
 <br>
 
@@ -201,7 +209,7 @@ Geographic Data:
 
 ## Circles with d3.js: empty container
 
-[working example](examples/empty_container.html) | [on jsfiddle](http://jsfiddle.net/postfalk/1nydhomv/5/)
+[working example](examples/empty_container.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/5/)
 
 ```
 <body>
@@ -237,7 +245,7 @@ Geographic Data:
 </body>
 ```
 
-will render something like this
+will render
 
 ```html
     <div id="canvas">
@@ -279,94 +287,183 @@ svg.selectAll('circle')
 ```js
 // !!! Pseudo code - will not run
 // create selection, bind data
-selection = d3.select('#canvas').append('svg:svg').data(data).selectAll('circle')
+var selection = d3.select('#canvas').append('svg:svg')
+                    .selectAll('circle')
+                    .data(data);
 
 // create svg elements for new data points
-selection.enter().append('circle')
+selection.enter().append('circle');
 
 // update existing svg elements here (including the ones just created)
 // d is the data point, i the index
-selection.attr('color', function(d, i) {return d.color})
+selection.attr('color', function(d, i) {return d.color});
 
 // deal with elements no longer covered by data (removal)
-selection.exit().remove()
+selection.exit().remove();
 ```
 
 ---
 ## Visualizing what's going on
 
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="85">['red', 'red', 'red']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect>-->
 </svg>
 
 ---
 
 ## Visualizing what's going on
 
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="85">['red', 'red', 'red']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
-    <text x="0" y="130">svg.selectAll('rect')</text>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect> -->
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+</svg>
+
+---
+
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['red', 'red', 'red']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect> -->
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect');</text>
 </svg>
 
 ---
 ## Visualizing what's going on
 
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="85">['red', 'red', 'red']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="250" y="70" width="20" height="20" stroke="black" fill="white"></rect>
-    <rect x="280" y="70" width="20" height="20" stroke="black" fill="white"></rect>
-    <rect x="310" y="70" width="20" height="20" stroke="black"fill="white"></rect>
-    <text x="0" y="130">svg.selectAll('rect').data(data).enter()</text>
-    <rect x="0" y="270" width="20" height="20" stroke="black" fill="white"></rect>
-    <text x="30" y="290">object holding data but no DOM element</text>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="grey"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data);</text>
+    <rect x="0" y="270" width="20" height="20" fill="grey"></rect>
+    <text x="30" y="290">undefined</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['red', 'red', 'red']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="white" stroke="red"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="white" stroke="red"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="white" stroke="red"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter();</text>
+    <rect x="0" y="270" width="20" height="20" fill="white" stroke="red"></rect>
+    <text x="30" y="290">object holding data point but no DOM element</text>
 </svg>
 
 ---
 
 ## Visualizing what's going on
 
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="85">['red', 'red', 'red']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="red"></rect>
     <rect x="30" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="250" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="280" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="310" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="white" stroke="red"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="white" stroke="red"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="white" stroke="red"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="white" stroke="black"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="white" stroke="black"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="white" stroke="black"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter().append('rect');</text>
+</svg>
+
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['red', 'red', 'red']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="red"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="red"></rect>
     <rect x="500" y="70" width="20" height="20" fill="red"></rect>
     <rect x="530" y="70" width="20" height="20" fill="red"></rect>
     <rect x="560" y="70" width="20" height="20" fill="red"></rect>
-    <text x="0" y="130">svg.selectAll('rect').data(data).enter().append('rect').attr('fill', d)</text>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter().append('rect')</text>
+    <text x="40" y="260" class="mycode">.attr('fill', function(d, i) {return d})</text>
+    <text x="40" y="300" class="mycode">.attr('x', function(d, i) {return i * 30 + 20})</text>
+    <text x="40" y="340" class="mycode">.attr('y', 20)</text>
+    <text x="40" y="380" class="mycode">.attr('height', 20).attr('width', 20);</text>
+
 </svg>
 
 ---
 
 ## Visualizing what's going on
 
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="85">['green', 'green', 'green']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="green"></rect>
     <rect x="30" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="green"></rect> -->
     <rect x="500" y="70" width="20" height="20" fill="red"></rect>
     <rect x="530" y="70" width="20" height="20" fill="red"></rect>
     <rect x="560" y="70" width="20" height="20" fill="red"></rect>
@@ -376,102 +473,535 @@ selection.exit().remove()
 
 ## Visualizing what's going on
 
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="85">['green', 'green', 'green']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="green"></rect>
     <rect x="30" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="250" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="280" y="70" width="20" height="20" fill="red"></rect>
-    <rect x="310" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="green"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="red"></rect>
     <rect x="500" y="70" width="20" height="20" fill="red"></rect>
     <rect x="530" y="70" width="20" height="20" fill="red"></rect>
     <rect x="560" y="70" width="20" height="20" fill="red"></rect>
-    <text x="0" y="130">svg.selectAll('rect').data(data)</text>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect');</text>
 </svg>
 
 ---
 
 ## Visualizing what's going on
 
-<svg class="my-selection-example" height="300" width="700">
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+
+<svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="85">['green', 'green', 'green']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="green"></rect>
     <rect x="30" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="250" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="280" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="310" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
-    <text x="0" y="130">svg.selectAll('rect').data(data).attr('fill', d)</text>
+    <rect x="60" y="70" width="20" height="20" fill="green"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="red" stroke="green" stroke-width="2"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="red" stroke="green" stroke-width="2"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="red" stroke="green" stroke-width="2"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="red"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="red"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data();</text>
+    <rect x="0" y="270" width="20" height="20" fill="red" stroke="green" stroke-width="2"></rect>
+    <text x="30" y="290">DOM element and data out of sync until data is mapped</text>
 </svg>
 
 ---
 ## Visualizing what's going on
 
-<svg class="my-selection-example" height="300" width="700">
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+
+<svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="85">['green', 'green', 'green']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="green"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="green"></rect>
     <rect x="500" y="70" width="20" height="20" fill="green"></rect>
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
-</svg>
-
----
-
-## Visualizing what's going on
-
-<svg class="my-selection-example" height="300" width="700">
-    <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
-    <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="250" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="280" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="310" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
-    <text x="0" y="130">svg.selectAll('rect')</text>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg')</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter()</text>
+    <text x="40" y="260" class="mycode">.attr('fill', function(d, i) {return d})</text>
+    <text x="40" y="300" class="mycode">.attr('x', function(d, i) {return i * 30 + 20})</text>
+    <text x="40" y="340" class="mycode">.attr('y', 20)</text>
+    <text x="40" y="380" class="mycode">.attr('height', 20).attr('width', 20);</text>
 </svg>
 
 ---
 
 ## Visualizing what's going on
 
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
-    <text x="250" y="50">selection</text>
+    <text x="300" y="50">selection</text>
     <text x="500" y="50">DOM</text>
-    <rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="85">['blue', 'blue', 'blue', 'blue']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
     <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="90" y="70" width="20" height="20" fill="blue"></rect>
-    <rect x="250" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="280" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="310" y="70" width="20" height="20" fill="green"></rect>
-    <rect x="340" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
     <rect x="500" y="70" width="20" height="20" fill="green"></rect>
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
-    <text x="0" y="130">svg.selectAll('rect').data(data)</text>
 </svg>
 
 ---
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+
+<svg class="my-selection-example" height="300" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['blue', 'blue', 'blue', 'blue']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect');</text>
+
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['blue', 'blue', 'blue', 'blue']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data);</text>
+    <rect x="0" y="270" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <text x="30" y="290">DOM element and data out of sync until data is mapped</text>
+    <rect x="0" y="300" width="20" height="20" fill="grey"></rect>
+    <text x="30" y="320">undefined</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['blue', 'blue', 'blue', 'blue']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="white" stroke="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter();</text>
+    <rect x="0" y="270" width="20" height="20" fill="white" stroke="blue"></rect>
+    <text x="30" y="290">object holding data point but no DOM element</text>
+    <rect x="0" y="300" width="20" height="20" fill="grey"></rect>
+    <text x="30" y="320">undefined</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['blue', 'blue', 'blue', 'blue']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="white" stroke="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="white" stroke="black"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter().append('rect');</text>
+</svg>
+---
+
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['blue', 'blue', 'blue', 'blue']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="white" stroke="blue"></rect>
+    <!--<rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="white" stroke="black"></rect> -->
+    <text x="500" y="85">? ? ? ?</text>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter().append('rect')</text>
+    <text x="40" y="260" class="mycode">.attr('fill', function(d, i) {return d})</text>
+    <text x="40" y="300" class="mycode">.attr('x', function(d, i) {return i * 30 + 20})</text>
+    <text x="40" y="340" class="mycode">.attr('y', 20)</text>
+    <text x="40" y="380" class="mycode">.attr('height', 20).attr('width', 20);</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/5/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['blue', 'blue', 'blue', 'blue']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="white" stroke="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter().append('rect')</text>
+    <text x="40" y="260" class="mycode">.attr('fill', function(d, i) {return d})</text>
+    <text x="40" y="300" class="mycode">.attr('x', function(d, i) {return i * 30 + 20})</text>
+    <text x="40" y="340" class="mycode">.attr('y', 20)</text>
+    <text x="40" y="380" class="mycode">.attr('height', 20).attr('width', 20);</text>
+</svg>
+
+---
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/6/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">[]</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="green"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect');</text>
+    <rect x="0" y="270" width="20" height="20" fill="green" stroke="blue" stroke-width="2"></rect>
+    <text x="30" y="290">DOM element and data out of sync until data is mapped</text>
+</svg>
+---
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/6/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">[]</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect')</text>
+    <text x="40" y="260" class="mycode">.attr('fill', function(d, i) {return d})</text>
+    <text x="40" y="300" class="mycode">.attr('x', function(d, i) {return i * 30 + 20})</text>
+    <text x="40" y="340" class="mycode">.attr('y', 20)</text>
+    <text x="40" y="380" class="mycode">.attr('height', 20).attr('width', 20);</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['orange', 'orange']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['orange', 'orange']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect');</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['orange', 'orange']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data);</text>
+    <rect x="0" y="270" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <text x="30" y="290">DOM element and data out of sync until data is mapped</text>
+
+</svg>
+---
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['orange', 'orange']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter();</text>
+    <rect x="0" y="270" width="20" height="20" fill="grey"></rect>
+    <text x="30" y="290">undefined</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['orange', 'orange']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data);</text>
+    <rect x="0" y="270" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <text x="30" y="290">DOM element and data out of sync until data is mapped</text>
+
+</svg>
+
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['orange', 'orange']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="560" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="590" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).exit();</text>
+    <rect x="0" y="270" width="20" height="20" fill="grey"></rect>
+    <text x="30" y="290">undefined</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">['orange', 'orange']</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="grey"></rect>
+    <rect x="360" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="390" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).exit().remove();</text>
+    <rect x="0" y="270" width="20" height="20" fill="grey"></rect>
+    <text x="30" y="290">undefined</text>
+</svg>
+---
+
+## Visualizing what's going on
+
+[on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+
+<svg class="my-selection-example" height="400" width="700">
+    <text x="0" y="50">data</text>
+    <text x="300" y="50">selection</text>
+    <text x="500" y="50">DOM</text>
+    <text x="0" y="85">[]</text>
+    <!--<rect x="0" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="30" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="60" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="90" y="70" width="20" height="20" fill="blue"></rect> -->
+    <rect x="300" y="70" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <rect x="330" y="70" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <rect x="500" y="70" width="20" height="20" fill="blue"></rect>
+    <rect x="530" y="70" width="20" height="20" fill="blue"></rect>
+    <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect');</text>
+    <rect x="0" y="270" width="20" height="20" fill="blue" stroke="orange" stroke-width="2"></rect>
+    <text x="30" y="290">DOM element and data out of sync until data is mapped</text>
+
+</svg>
+---
+
+
+
 ## Visualizing what's going on
 
 <svg class="my-selection-example" height="300" width="700">

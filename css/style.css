@@ -2,7 +2,11 @@
 body {
   font-family: Georgia, Times, 'Times New Roman', serif;
   font-weight: normal;
-  color: rgb(26,26,26); 
+  /* color: rgb(26,26,26); */
+  color: #584f2f
+}
+svg text {
+    fill: #584f2f
 }
 h1, h2, h3, h4 {
   font-weight: 500;
@@ -156,4 +160,9 @@ img {
 
 li li {
     font-size: 0.6em;
+}
+
+.mycode {
+    font-family: courier !important;
+    font-size: 1em;
 }
