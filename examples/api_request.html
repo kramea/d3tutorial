@@ -10,11 +10,12 @@
     <div id="canvas"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script>
-        url = "https://ecoengine.berkeley.edu/api/search/?q=puma"
+        var url = "https://ecoengine.berkeley.edu/api/search/?q=puma";
         d3.json(url, function(error, data) {
             if (error) alert('Something went wrong!')
             else {
                 console.log(data);
+                // console.log(data.fields.state_province);
             }
         })
     </script>
