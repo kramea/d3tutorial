@@ -162,17 +162,20 @@ barchart, scatterplot, or piechart, or even map
 [working example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/3/)
 
 ```html
-<svg width="200" height="100" 
-    transform="translate(100 100) scale(.556 -1.111)">
-    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
-    <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+<svg width="200" height="200">
+    <!-- add group with its own coordinate system -->
+    <g transform="translate(100, 100) scale(.556, -1.111)">
+        <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+        <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+    </g>
 </svg>
 ```
 
-<svg width="200" height="100" 
-    transform="translate(100 100) scale(.556 -1.111)">
-    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
-    <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+<svg width="200" height="90">
+    <g transform="translate(100, 100) scale(.556, -1.111)">
+        <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+        <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+    </g>
 </svg>
 
 Geographic Data:
@@ -189,17 +192,20 @@ Geographic Data:
 [working example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/3/)
 
 ```html
-<svg width="200" height="200" 
-    transform="translate(180 90) scale(.556 -1.111)">
-    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
-    <circle cx="0" cy="89.92" r="40" fill="green"></circle>
+<svg width="200" height="200">
+    <!-- add group with its own coordinate system -->
+    <g transform="translate(100, 100) scale(.556, -1.111)">
+        <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+        <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+    </g>
 </svg>
 ```
 
-<svg width="200" height="100" 
-    transform="translate(100 100) scale(.556 -1.111)">
-    <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
-    <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+<svg width="200" height="90">
+    <g transform="translate(100, 100) scale(.556, -1.111)">
+        <circle cx="-107.91" cy="71.94" r="10" fill="red"></circle>
+        <circle cx="0" cy="55.55" r="40" fill="green"></circle>
+    </g>
 </svg>
 
 * well this is not a proper projection (will get back to this)
@@ -305,7 +311,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/0bmbzfoa/1/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -321,7 +327,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/1/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -339,7 +345,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/1/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -356,7 +362,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/1/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -378,7 +384,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/1/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -401,7 +407,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/1/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -425,7 +431,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/2/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/1/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -454,7 +460,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/2/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -473,7 +479,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/2/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -497,7 +503,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/2/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -522,7 +528,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/3/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/2/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -550,7 +556,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/3/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -569,7 +575,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/3/)
 
 <svg class="my-selection-example" height="300" width="700">
     <text x="0" y="50">data</text>
@@ -594,7 +600,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/3/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -623,7 +629,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/3/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -652,7 +658,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/3/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -679,7 +685,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/4/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/3/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -710,7 +716,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/5/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/4/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -741,7 +747,7 @@ selection.exit().remove();
 ## Visualizing what's going on
 
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/6/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/5/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -768,7 +774,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/6/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/5/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -798,7 +804,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/6/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -818,7 +824,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/6/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -844,7 +850,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/6/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -870,7 +876,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/6/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -896,7 +902,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/6/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -924,7 +930,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/6/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -952,7 +958,7 @@ selection.exit().remove();
 
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/8/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/6/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -977,7 +983,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/9/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/7/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -1000,7 +1006,7 @@ selection.exit().remove();
 ---
 ## Visualizing what's going on
 
-[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pcuzLvtc/9/)
+[example](examples/whats_going_on.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/7/)
 
 <svg class="my-selection-example" height="400" width="700">
     <text x="0" y="50">data</text>
@@ -1026,11 +1032,13 @@ selection.exit().remove();
 
 ## Making it compact
 
+[example](examples/making_it_compact.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/8/)
+
 ```
-data = ['red', 'green', 'blue']
+var data = ['red', 'green', 'blue'];
 
 var svg = d3.select('#canvas').append('svg');
-rects = svg.selectAll('rect').data(data)
+var rects = svg.selectAll('rect').data(data);
 rects.enter().append('rect');
 rects.exit().remove();
 rects.attr('fill', function(d, i) {return d})
@@ -1043,25 +1051,31 @@ rects.attr('fill', function(d, i) {return d})
 
 ## Making it interactive
 
-[working example](example_1) | [online](http://bl.ocks.org/postfalk/78d05e337231a1a94da9) | [on jsfiddle.net](http://jsfiddle.net/postfalk/1nydhomv/12/)
+[example](examples/making_it_interactive.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/p0bmbzfoa/9/)
 
 * using events, e.g. mouse click
 
 ```
 svg.selectAll('rect').on('click', function(d, i) {alert(d, i)});
 ```
-http://jsfiddle.net/postfalk/v9drdn31/
-
 
 * wrapping the update pattern into a function so that it can be called whenever an event is triggered
 * event &rarr; manipulate data &rarr; update visualization
 * callback function is a function that is passed as an argument to another function and called inside this second function
+
+[finalized example 1 ](example_1) | [online](http://bl.ocks.org/postfalk/78d05e337231a1a94da9) 
 
 ---
 
 ## A complete visualization example using API data
 
 [working example](example_2) / [online](http://bl.ocks.org/postfalk/3d9a789ebfa4bf9b8c7d)
+
+#### Goals:
+
+* seeing real data at work
+* scales
+* transformations
 
 ---
 
@@ -1072,7 +1086,10 @@ http://jsfiddle.net/postfalk/v9drdn31/
 * directly accessible through applications and coding languages
 
 ---
+
 ## APIs: The Berkeley Ecoinformatics Engine as an example
+
+[portal] (https://holos.berkeley.edu) | [API] | (https://ecoengine.berkeley.edu)
 
 * it currently serves Natural History Data from UC Berkeley, https://ecoengine.berkeley.edu
 * We will use the search endpoint for a quick visualization
