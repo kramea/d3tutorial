@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Making it interactive</title>
+  </head>
+
+  <body>
+    <div id="canvas"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script>
+    var data = ['red', 'green', 'blue'];
+    var svg = d3.select('#canvas').append('svg');
+    var rects = svg.selectAll('rect').data(data);
+        rects.enter().append('rect');
+        rects.exit().remove();
+        rects.attr('fill', function(d, i) {return d})
+           .attr('x', function(d, i) {return i * 30 + 20})
+           .attr('y', 20)
+           .attr('height', 20)
+           .attr('width', 20)
+           .on('click', function(d, i) {alert(i + ' ' + d)});
+    </script>
+  </body>
+
+</html>
