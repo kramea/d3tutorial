@@ -6,7 +6,7 @@ var width = 500,
 
 var svg = d3.select('#canvas').append('svg')
     .attr('width', width)
-    .attr('height', height)
+    .attr('height', height);
 
 d3.json('ca_counties.json', function(error, data) {
     if (error) return console.error(error);
@@ -22,7 +22,7 @@ d3.json('ca_counties.json', function(error, data) {
 
     var colorscale = d3.scale.linear()
         .range(['darkred', 'white', 'darkgreen'])
-        .domain([-0.025, 0, 0.025])
+        .domain([-0.025, 0, 0.025]);
 
     svg.selectAll('.counties')
         .data(counties.features)
@@ -33,15 +33,15 @@ d3.json('ca_counties.json', function(error, data) {
         .attr('fill', function(d, i) {
             change = (d.properties.POP2012 - d.properties.POP2010)/d.properties.POP2010
             return colorscale(change)
-        })
+        });
 
-    legend_entries = [
+    var legend_entries = [
         [0, -.025, '2.5% loss'],
         [1, -.01, '1% loss'],
         [2, 0, 'no change'],
         [3, .01, '1% gain'],
         [4, .025, '2.5% gain']
-    ]
+    ];
 
     svg.selectAll('rect')
         .data(legend_entries)
@@ -52,7 +52,7 @@ d3.json('ca_counties.json', function(error, data) {
         .attr('stroke-width', .2)
         .attr('stroke', 'black')
         .attr('height', 10)
-        .attr('width', 20)
+        .attr('width', 20);
 
     svg.selectAll('text')
         .data(legend_entries)
@@ -60,7 +60,7 @@ d3.json('ca_counties.json', function(error, data) {
         .attr('x', 325)
         .attr('font-size', 9)
         .attr('y', function(d, i) {return 40 + i * 15})
-        .text(function(d) {return d[2]})
+        .text(function(d) {return d[2]});
 
 });
 

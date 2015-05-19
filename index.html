@@ -14,34 +14,42 @@ layout: true
 class: left
 background-image: url(../css/logos.png)
 ---
-## Before we start
-
-Open a terminal, and 
-
-### cd /home/oski/BootcampMaterials 
-
-### git clone https://github.com/berkeley-gif/d3tutorial.git
-
-### cd d3tutorial
-
-### python -m SimpleHTTPServer
-
-### Open browser at localhost:8000
----
-
-# Data Visualization and Mapping with d3.js
+## Data Visualization and Mapping with d3.js
 <br>
 #### Falk Schuetzenmeister
 #### Spatial Data Science Bootcamp
 <br>
 #### May 22, 2015
 ---
+# Before we start
 
+Open a terminal, and 
+
+#### `cd /home/oski/BootcampMaterials`
+
+#### `git clone https://github.com/berkeley-gif/d3tutorial.git`
+
+#### `cd d3tutorial`
+
+#### `python -m SimpleHTTPServer`
+
+#### Open browser at localhost:8000
+
+(Make sure Python is installed. Python's SimpleHTTPServer will serve our local examples.)
+---
 ##[__d3js.org__](http://d3js.org) __Data-Driven Documents__
 
     
 ![](img/d3.png)
+---
+## bl.ocks.org
 
+http://bl.ocks.org
+
+* Create a public Gist on [GitHub](https://github.com) that contains at least an `index.html` file
+* E.g. https://gist.github.com/postfalk/21b539a7a87a97cd1f95
+* It will be automatically parsed by http://bl.ocks.org/postfalk/21b539a7a87a97cd1f95
+(updated changes will not apply in realtime though)
 
 ---
 ## The world of d3.js 
@@ -104,7 +112,24 @@ with one or more elements of a second set (the range).
 Any (computer) visualization problem can be described as a mapping problem. 
 Geospatial mapping is just a subset.
 ---
+## Revisiting mapping: Outline
 
+<br>
+
+<table><tr><td>
+<img src="img/ca.png" style="height:350px;width:auto;"></img>
+</td><td>
+Scalable Vector Graphics<br>
+Selectors<br>
+General Update Pattern<br>
+Events<br>
+Transitions<br>
+RESTful API calls<br>
+TopoJSON<br>
+d3.geo<br>
+</td></tr></table>
+
+---
 ## Again, what is d3?
 
 * d3.js has everything you need for visualizing complex data BUT you will not find commands like 
@@ -118,7 +143,7 @@ barchart, scatterplot, or piechart, or even map
 
 ## Getting started: svg 
 
-[working example](examples/getting_started.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/1/)
+[example](examples/getting_started.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/1/)
 ```html
 <!-- svg canvas starts here-->
 <svg>
@@ -134,7 +159,7 @@ barchart, scatterplot, or piechart, or even map
 ---
 ## Relating data
 
-[working example](examples/getting_started.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/1/)
+[example](examples/getting_started.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/1/)
 
 ```html
 <!-- svg canvas starts here-->
@@ -159,7 +184,7 @@ barchart, scatterplot, or piechart, or even map
 ---
 ## Changing scale
 
-[working example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/2/)
+[example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/2/)
 
 ```html
 <svg width="200" height="200">
@@ -189,7 +214,7 @@ Geographic Data:
 
 ## Conclusion
 
-[working example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/2/)
+[example](examples/changing_scale.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/2/)
 
 ```html
 <svg width="200" height="200">
@@ -215,7 +240,7 @@ Geographic Data:
 
 ## Circles with d3.js: empty container
 
-[working example](examples/empty_container.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/3/)
+[example](examples/empty_container.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/3/)
 
 ```
 <body>
@@ -235,7 +260,7 @@ Geographic Data:
 
 ## Circles with d3.js: selectors
 
-[working example](examples/selectors.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/4/)
+[example](examples/selectors.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/4/)
 
 ```html
 <body>
@@ -263,7 +288,7 @@ will render
 
 ## Circles with d3.js: complete example
 
-[working example](examples/complete_example.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/5/)
+[example](examples/complete_example.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/5/)
 
 ```js
 var data = [
@@ -288,7 +313,7 @@ svg.selectAll('circle')
 
 ## Enter, update, exit: The general update pattern
 
-[working example](example_1) | [online](http://bl.ocks.org/postfalk/78d05e337231a1a94da9) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pn96ca6v/1/)
+[finalized example 1](example_1) | [online](http://bl.ocks.org/postfalk/78d05e337231a1a94da9) | [on jsfiddle.net](http://jsfiddle.net/postfalk/pn96ca6v/1/)
 
 ```js
 // !!! Pseudo code - will not run
@@ -1069,7 +1094,7 @@ svg.selectAll('rect').on('click', function(d, i) {alert(d, i)});
 
 ## A complete visualization example using API data
 
-[working example](example_2) | [online](http://bl.ocks.org/postfalk/3d9a789ebfa4bf9b8c7d)
+[finalized example 2](example_2) | [online](http://bl.ocks.org/postfalk/3d9a789ebfa4bf9b8c7d)
 
 #### Goals:
 
@@ -1086,23 +1111,47 @@ svg.selectAll('rect').on('click', function(d, i) {alert(d, i)});
 * directly accessible through applications and coding languages
 
 ---
-
 ## APIs: The Berkeley Ecoinformatics Engine as an example
 
 [portal](https://holos.berkeley.edu) | [API](https://ecoengine.berkeley.edu)
 
-* it currently serves Natural History Data from UC Berkeley, https://ecoengine.berkeley.edu
+* the Berkeley Ecoinformatics Engine serves Natural History Data from UC Berkeley, https://ecoengine.berkeley.edu
+* it has over 5,000,000 records from various collections, as well as Photos, and other georeferenced data
+
+<img src="img/veg_map_circle_outline.png" style="height:95px; width:auto;"></img>
+<img src="img/tyrannosaurus_dksmith_circle_with_border.png" style="height:95px; width:auto;"></img>
+<img src="img/vtmsequoia308534_circle_outline.png" style="height:95px; width:auto;"></img>
+<img src="img/pollen.png" style="height:95px; width:auto;"></img>
+<img src="img/didophis_jensvindum_circle.png" style="height:95px; width:auto;"></img>
+<img src="img/landscape.png" style="height:95px; width:auto;"></img>
+<img src="img/megachilid_20140622_11_circle_outline.png" style="height:95px; width:auto;"></img>
+---
+## APIs: The Berkeley Ecoinformatics Engine as an example
+
+[portal](https://holos.berkeley.edu) | [API](https://ecoengine.berkeley.edu)
+
 * We will use the search endpoint for a quick visualization
 https://ecoengine.berkeley.edu/api/search/
 * We can easily query for a genus https://ecoengine.berkeley.edu/api/search/?q=puma
 * Query language specific to API's - read documentation https://ecoengine.berkeley.edu/docs/
 * Many APIs require authorization or limit use
-* Let's visualize the count over states and provinces
+---
+## APIs: The Berkeley Ecoinformatics Engine as an example
+
+[portal](https://holos.berkeley.edu) | [API](https://ecoengine.berkeley.edu)
+
+* Let's visualize the count of the geni puma, lynx, canis, and alligator over states and provinces
+
+<a href="https://ecoengine.berkeley.edu/api/photos/CalPhotos%3A6666%2B6666%2B0413%2B0037/"><img src="img/0037.jpeg" style="height:200px; width:auto"></img></a>
+<a href="https://ecoengine.berkeley.edu/api/photos/CalPhotos%3A6666%2B6666%2B0413%2B0045/"><img src="img/0045.jpeg" style="height:200px; width:auto"></img></a>
+<a href="https://ecoengine.berkeley.edu/api/photos/CalPhotos%3A8235%2B3181%2B2559%2B0098/"><img src="img/0098.jpeg" style="height:200px; width:auto"></img></a>
+<a href="https://ecoengine.berkeley.edu/api/photos/CalPhotos%3A0000%2B0000%2B0901%2B0625/"><img src="img/0625.jpeg" style="height:200px; width:auto"></img></a>
+Photos from [Calphotos](http://calphotos.berkeley.edu): Corsi and Corsi, Corsi and Corsi, Ingles, Flaxington
 
 ---
 ## Sending an API request using d3.js
 
-[working example](examples/api_request.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/05wa7upk/1/)
+[example](examples/api_request.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/05wa7upk/1/)
 
 ```js
     var url = "https://ecoengine.berkeley.edu/api/search/?q=puma";
@@ -1122,47 +1171,57 @@ https://ecoengine.berkeley.edu/api/search/
 
 ## Scales
 
-[working example](examples/scales.html) | [on jsfiddle.net]()
+[example](examples/scales.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/05wa7upk/3/)
 
-* Remember the earlier [mapping slide](#10)? Provide domain and range to create a scale.
+* Remember the earlier [mapping slide](#11)? Provide domain and range to create a scale.
 
 ```js
-temperature_scale = d3.scale.linear()
+var temperature_scale = d3.scale.linear()
     .domain([-273, 1000])
-    .range([0, 400])
+    .range([0, 400]);
 // will return the pixel value for 0 and 100 Celsius
-console.log(temperature_scale(0), temperature_scale(100))
-color_scale = d3.scale.linear()
+console.log(temperature_scale(0), temperature_scale(100));
+var color_scale = d3.scale.linear()
     .domain([-273, 1000])
-    .range(['darkblue', 'darkred'])
+    .range(['darkblue', 'darkred']);
 // will return the color code on the color gradient
-console.log(color_scale(800))
-categorial_scale = d3.scale.ordinal()
+console.log(color_scale(800));
+var categorial_scale = d3.scale.ordinal()
     .domain(['apples', 'oranges', 'bananas', 'plumes'])
-    .rangePoints([0, 400])
+    .rangePoints([0, 400]);
 // will return the point where oranges should go
-console.log(categorial_scale('oranges'))
+console.log(categorial_scale('oranges'));
 ```
 
 ---
 
 ## Adding transitions
 
-[working example](example_3) / [online](http://bl.ocks.org/postfalk/bcf01af7bd0381c5b0ca)
-
-[simple example](examples/transition.html)
+[finalized example 3](example_3) | [online](http://bl.ocks.org/postfalk/bcf01af7bd0381c5b0ca)
 
 * transitions are animations between two states
 * they are relatively easy to use
 * different functions are available
 * transition functions can be custom-functions
 * transition time can be set
+---
+## Transitions: simple example
 
+[example](examples/transition.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/05wa7upk/4/)
+
+```js
+d3.selectAll('rect')
+   .transition()
+   .delay(1000)
+   .duration(4000)
+   .attr('x', 400)
+
+```
 ---
 
 ## d3.geo: Revisiting geographic data
 
-[working example](example_4) / [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+[finalized example 4](example_4) | [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
 
 * internet bandwidth is still the biggest hurdle in client side map rendering
 * web mapping relies on smart technologies to minimize the data transferred, such as
@@ -1173,7 +1232,7 @@ console.log(categorial_scale('oranges'))
 ---
 ## Example relies on TopoJSON
 
-[working example](example_4) / [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+[finalized example 4](example_4) | [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
 
 * TopoJSON created within the d3 ecosystem
 * compare:
@@ -1189,6 +1248,8 @@ console.log(categorial_scale('oranges'))
 ---
 ## What about precision?
 
+[finalized example 4](example_4) | [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+
 * Yes, there is a fair amount of data reduction (but you still have the original Shapefile)
 * Create a pipeline from your archival files to formats that suits your presentation (ideally in code)
 * Unfortunately typical in GIS: coordinates like -123.32332441448, well those are nanometers! Almost half of your GIS data are useless digits that are created by conversions
@@ -1197,22 +1258,99 @@ console.log(categorial_scale('oranges'))
 
 ## What does TopoJSON do
 
+[finalized example 4](example_4) | [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+
 * Reducing duplicate arcs on boundaries of neighboring features (here goes another half of your data), store edges seperately,
 reference them by identifiers 
 * Subtract the common offset of all coordinates and store them as transitions, e.g. for CA you can 
 add 122
 * Snap vertices to a grid of reasonable precision, store the distance between grid cells as zoom factor and refer to coordinates by integer numbers
 
-[Example](example_4/ca_counties.json)
+[our TopoJSON example](example_4/ca_counties.json)
 
-Why didn't we do this early? Computing power to reverse all the transitions on the fly
+Why didn't we do this earlier? Computing power is required to reverse transitions on the fly.
 
 ---
 ## Building up the mapping function
 
-[working example](example_4) / [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+[finalized example 4](example_4) | [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
 
+* assuming lat/long as input domain
+* picking a projection https://github.com/mbostock/d3/wiki/Geo-Projections
+* there is a fair amount of standard projections but projections can also be build from parameters found in .prj file or projection strings, EPSG not supported
+* adding parameters how projection relates to your SVG elements
+* GeoJSON can be directly passed to the resulting path function, that will create `<path>`.
 
+---
+## Building up the mapping function
+
+[finalized example 4](example_4) | [online](http://bl.ocks.org/postfalk/e56de3bb77c87c43c4a5)
+
+```js
+// remapping TopoJSON back to GeoJSON
+var projection = d3.geo.mercator()
+    .scale(2000)
+    .center([-119.5, 37.15])
+    .translate([width/2, height/2]);
+// creating path function
+var path = d3.geo.path().projection(projection);
+
+// further down, we can set the data attribute on the path using this function
+svg.selectAll('.counties')
+    .data(counties.features)
+    .enter().append('path')
+    .attr('d', path)
+
+```
+---
+## Making d3.js easier
+
+* [c3.js](http://c3js.org/), [NVD3](http://nvd3.org/) and many [more](http://mikemcdearmon.com/portfolio/techposts/charting-libraries-using-d3) provide prepackaged charts
+
+* [DataMaps](http://datamaps.github.io/) for creating d3 maps quickly
+
+* [Epoch](http://fastly.github.io/epoch/) for real time data, since sensor might be the next big think
+
+---
+## Conclusion: Revisiting Geographic Storytelling
+
+* The One-stop-shop approach for GIS data does not work very well
+
+* Different requirements for data collections, data processing, data analyzes, and presentation
+
+* Or: big data and small devices
+
+---
+## Requirements for a new GIS world
+
+* This situation requires flexible data stores that can deliver customized selection of data (e.g. API's)
+
+* Many data management and data processing problems have been solved before standardized solutions, e.g. ESRI ArcMap, CartoDB, MapSense, or MapBox can do many things
+
+* They can effectively deliver context to your visualizations 
+
+---
+## Where you can stand out is presenting data beautifully and quickly.
+
+* Data and web presentation of data have extremely different life-cycles (longer, very short).
+
+* Develop data assets and web presentations separately, your app will look aged quickly, your data can be useful for a long time.
+---
+## D3 and its ecosystem is very well geared toward data journalism.
+
+* Convey _messages_ with data and visualisations
+
+* Do you really need a big web application or would a quick communication of some interesting aspect of your data be more effective?
+---
+# Thank you very much.
+
+<br>
+
+* file questions as issues on GitHub https://github.com/berkeley-gif/d3tutorial<br>(I will try to answer them for the next two weeks.)
+
+* I will NOT guarantee the existence of the jsfiddles or the bl.ocks.org examples BUT they are all on your disk (take them home!)
+
+* [d3js.org](http://d3js.org/) opens up an entire universe
 
 <!-- NEXT SLIDE -->
     </textarea>
