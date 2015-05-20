@@ -158,6 +158,10 @@ img {
     font-family: sans-serif;
 }
 
+li {
+    font-size: 0.8em;
+}
+
 li li {
     font-size: 0.6em;
 }
