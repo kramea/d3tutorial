@@ -581,7 +581,7 @@ selection.exit().remove();
     <rect x="530" y="70" width="20" height="20" fill="red"></rect>
     <rect x="560" y="70" width="20" height="20" fill="red"></rect>
     <text x="0" y="180" class="mycode">var svg = d3.select('svg');</text>
-    <text x="0" y="220" class="mycode">svg.selectAll('rect').data();</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data);</text>
     <rect x="0" y="270" width="20" height="20" fill="red" stroke="green" stroke-width="2"></rect>
     <text x="30" y="290">DOM element and data out of sync until data is mapped</text>
 </svg>
@@ -606,7 +606,7 @@ selection.exit().remove();
     <rect x="530" y="70" width="20" height="20" fill="green"></rect>
     <rect x="560" y="70" width="20" height="20" fill="green"></rect>
     <text x="0" y="180" class="mycode">var svg = d3.select('svg')</text>
-    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data).enter()</text>
+    <text x="0" y="220" class="mycode">svg.selectAll('rect').data(data)</text>
     <text x="40" y="260" class="mycode">.attr('fill', function(d, i) {return d})</text>
     <text x="40" y="300" class="mycode">.attr('x', function(d, i) {return i * 30 + 20})</text>
     <text x="40" y="340" class="mycode">.attr('y', 20)</text>
@@ -1177,9 +1177,9 @@ https://ecoengine.berkeley.edu/api/search/
 
 * We can easily query for a genus https://ecoengine.berkeley.edu/api/search/?q=puma
 
-* Query language specific to API's - read documentation https://ecoengine.berkeley.edu/docs/
+* Query language specific to API's - Read documentation! https://ecoengine.berkeley.edu/docs/
 
-* Many APIs require authorization or limit use
+* Many APIs require authorization or limit use, EcoEngine is open!
 ---
 ## APIs: The Berkeley Ecoinformatics Engine 
 
@@ -1368,7 +1368,7 @@ svg.selectAll('.counties')
 
 * [DataMaps](http://datamaps.github.io/) for creating d3 maps quickly
 
-* [Epoch](http://fastly.github.io/epoch/) for real time data, since sensor might be the next big think
+* [Epoch](http://fastly.github.io/epoch/) for real time data. Sensors might be the next big think!
 
 ---
 ## Conclusion: Revisiting Geographic Storytelling
@@ -1384,7 +1384,7 @@ svg.selectAll('.counties')
 
 * This situation requires flexible data stores that can deliver customized selection of data (e.g. API's)
 
-* Many data management and data processing problems have been solved before standardized solutions, e.g. ESRI ArcMap, CartoDB, MapSense, or MapBox can do many things
+* Many data management and data processing problems have been solved before, explore existing solutions, e.g. ESRI ArcMap, CartoDB, MapSense, or MapBox can do many things
 
 * They can effectively deliver context to your visualizations 
 
@@ -1405,7 +1405,7 @@ svg.selectAll('.counties')
 
 <br>
 
-* file questions as issues on GitHub https://github.com/berkeley-gif/d3tutorial<br>(I will try to answer them for the next two weeks.)
+* File additional questions as issues on GitHub https://github.com/berkeley-gif/d3tutorial<br>(I will try to answer them for the next two weeks.)
 
 * I will NOT guarantee the existence of the jsfiddles or the bl.ocks.org examples BUT they are all on your disk (take them home!)
 
