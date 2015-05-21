@@ -47,7 +47,9 @@ Open a terminal, and
 http://bl.ocks.org
 
 * Create a public Gist on [GitHub](https://github.com) that contains at least an `index.html` file
+
 * E.g. https://gist.github.com/postfalk/21b539a7a87a97cd1f95
+
 * It will be automatically parsed by http://bl.ocks.org/postfalk/21b539a7a87a97cd1f95
 (updated changes will not apply in realtime though)
 
@@ -74,8 +76,11 @@ Let's look at a recent example
 http://www.nytimes.com/interactive/2015/04/01/us/water-use-in-california.html?ref=us
 
 * map frame is gone, map appears in-line in the article
+
 * map data is reduced to the essentials (not relying on generalized tilesets)
+
 * Web Mercator projection left behind
+
 * not a mapping web application but rather a news article/post blog (very little code necessary)
 
 ---
@@ -89,16 +94,22 @@ https://www.jasondavies.com/maps/transition/
 https://www.jasondavies.com/maps/transition/
 
 * dynamic transitions by changing mapping functions
+
 * this example relays on only 200 lines of JS code!
+
 * uses functionality of d3.geo (part of the standard d3.js library)
 ---
 
 ## What is d3?
 
-* A JavaScript graphing and visualization library build on scalable vector graphic (SVG).
+* A JavaScript visualization library build on scalable vector graphic (SVG).
+
 * Successor of Protovis.js developed by the Stanford Data Visualization group (2009).
+
 * Mike Bostock has been the main developer. He works now for the New York Times.
-* D3 has become the work horse of a new age of data journalism and visualization.
+
+* D3 has become the work horse of data journalism and visualization.
+
 * For geospatial professionals it provides new ways to think about map making, communication, or even projects.
 
 ---
@@ -135,8 +146,11 @@ A map similar to the one you see.
 
 * d3.js has everything you need for visualizing complex data BUT you will not find commands like 
 barchart, scatterplot, or piechart, or even map
+
 * d3.js builds vizualizations (and other content) from its basic HTML5 or SVG elements (e.g. `<g>`, `<circle>`, `<rect>`, `<path>`).
+
 * d3.js is most and foremost a DOM manipulation library (in this regard similar to jquery).
+
 * d3.js comes with a lot of functions and methods to create _mapping functions_ that will map your data directly to properties on html elements.
 
 
