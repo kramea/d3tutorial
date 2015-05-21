@@ -285,6 +285,23 @@ will render
 
 ---
 
+## Circles with d3.hs: function or method chaining
+
+[example](examples/selectors.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/4/)
+
+
+```js
+var modified_object = object.method();
+var another_modification = modified_object.another_method();
+```
+
+can be written as
+
+```js
+var another_modification = object.method().another_method();
+```
+---
+
 ## Circles with d3.js: complete example
 
 [example](examples/complete_example.html) | [on jsfiddle.net](http://jsfiddle.net/postfalk/unzbproo/5/)
