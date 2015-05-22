@@ -82,7 +82,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -158,7 +158,7 @@
            height="123.57143"
            x="121.42857"
            y="103.07647" /></flowRegion><flowPara
-         id="flowPara3059"></flowPara></flowRoot>    <text
+         id="flowPara3059" /></flowRoot>    <text
        xml:space="preserve"
        style="font-size:14.10622692px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        x="133.62791"
@@ -169,7 +169,7 @@
          sodipodi:role="line"
          id="tspan3063"
          x="133.62791"
-         y="120.95785">{&quot;attributes&quot;:</tspan><tspan
+         y="120.95785">{&quot;properties&quot;:</tspan><tspan
          sodipodi:role="line"
          x="133.62791"
          y="138.59064"
@@ -189,7 +189,7 @@
          sodipodi:role="line"
          x="133.62791"
          y="209.12177"
-         id="tspan3065"> </tspan></text>
+         id="tspan3065" /></text>
     <text
        xml:space="preserve"
        style="font-size:12.10542488px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
@@ -201,11 +201,11 @@
          sodipodi:role="line"
          id="tspan3111"
          x="329.07156"
-         y="116.82097">properties</tspan><tspan
+         y="116.82097">attributes</tspan><tspan
          sodipodi:role="line"
          id="tspan3113"
          x="329.07156"
-         y="131.95274"></tspan><tspan
+         y="131.95274" /><tspan
          sodipodi:role="line"
          id="tspan3115"
          x="329.07156"
@@ -241,7 +241,7 @@
          sodipodi:role="line"
          id="tspan3131"
          x="329.07156"
-         y="268.13879"></tspan></text>
+         y="268.13879" /></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend)"
        d="m 176.42857,87.362182 c 20.09324,-16.923325 43.17597,-30.287012 67.85714,-39.285715 9.73016,-3.547594 19.74211,-6.429914 30,-7.857143 9.68906,-1.348085 19.52653,-1.387714 29.28572,-0.714285 42.80246,2.953568 84.51637,19.995228 117.14286,47.857143"
